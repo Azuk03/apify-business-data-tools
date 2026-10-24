@@ -14,6 +14,8 @@ This repo has copy-paste examples for **Python, JavaScript, cURL and AI agents (
 | Websites & leads | [Tech Stack Detector – BuiltWith & Wappalyzer Alternative](https://apify.com/ram1eal/website-tech-stack) | $4 / 1,000 website analyseds |
 | Websites & leads | [WHOIS Lookup & Domain Checker – Age, DNS, Email, SSL](https://apify.com/ram1eal/domain-intelligence) | $4 / 1,000 domain results |
 | E-commerce | [Shopify Scraper – Products, Prices, Stock & Price Monitor](https://apify.com/ram1eal/shopify-store-products) | $1.20 / 1,000 products |
+| Companies & compliance | [Startup Funding Rounds – Crunchbase Alternative (SEC Form D)](https://apify.com/ram1eal/startup-funding-rounds) | $10 / 1,000 funding rounds |
+| Websites & leads | [Contact Info Scraper – Company Emails, Phones & Socials](https://apify.com/ram1eal/company-contact-finder) | $3 / 1,000 website with contactss |
 
 ## Quick start
 
@@ -119,6 +121,28 @@ Scrape any Shopify store: every product with price, sale price, discount %, stoc
 
 ```bash
 curl -X POST "https://api.apify.com/v2/acts/ram1eal~shopify-store-products/run-sync-get-dataset-items"   -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json"   -d '{"stores":["allbirds.com","colourpop.com"],"onlyNew":true,"maxItems":500}'
+```
+
+### [Startup Funding Rounds – Crunchbase Alternative (SEC Form D)](https://apify.com/ram1eal/startup-funding-rounds)
+
+Daily list of US startups and private companies raising money, from official SEC Form D filings: amount raised, industry, state, first sale date and investor count. Legal, fresh and $10 per 1,000 rounds instead of a database subscription.
+
+**Price:** $10 per 1,000 funding rounds + $0.005 per run (pay per result, Apify's free plan includes $5/month).
+**Examples:** [Python](examples/startup_funding_rounds.py) · [JavaScript](examples/startup-funding-rounds.mjs)
+
+```bash
+curl -X POST "https://api.apify.com/v2/acts/ram1eal~startup-funding-rounds/run-sync-get-dataset-items"   -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json"   -d '{"since":"7 days","industries":["Other Technology","Computers","Telecommunications"]}'
+```
+
+### [Contact Info Scraper – Company Emails, Phones & Socials](https://apify.com/ram1eal/company-contact-finder)
+
+Find company contact details from websites in bulk: role e-mails (info@, sales@, support@), phone numbers and official social profiles (LinkedIn company page, Instagram, Facebook, X, YouTube, TikTok, WhatsApp). GDPR-safe and $3 per 1,000 sites.
+
+**Price:** $3 per 1,000 website with contactss + $0.005 per run (pay per result, Apify's free plan includes $5/month).
+**Examples:** [Python](examples/company_contact_finder.py) · [JavaScript](examples/company-contact-finder.mjs)
+
+```bash
+curl -X POST "https://api.apify.com/v2/acts/ram1eal~company-contact-finder/run-sync-get-dataset-items"   -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json"   -d '{"websites":["apify.com","allbirds.com","hetzner.com","gepa.de"]}'
 ```
 
 ## Why these tools
